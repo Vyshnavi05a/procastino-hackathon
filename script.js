@@ -879,7 +879,7 @@ function checkUpcomingDeadlines() {
 // Coach and AI Chat initialization is now in main DOMContentLoaded above
 // ===== AI Chat Integration with Backend =====
 // The API key is now securely stored on the server in .env file
-const API_BASE_URL = '/api'; // Backend API endpoint
+const API_BASE_URL = 'https://procastino-hackathon.onrender.com/api'; // Backend API endpoint
 
 let chatHistory = [];
 
