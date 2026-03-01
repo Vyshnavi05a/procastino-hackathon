@@ -96,7 +96,7 @@ function loginUser(email, password) {
 function logoutUser() {
     console.log('🔒 Logging out...');
     localStorage.removeItem('currentUser');
-    window.location.href = '/login.html';
+    window.location.href = '/procastino-hackathon/login.html';
 }
 
 /**
@@ -138,14 +138,14 @@ function checkAuthAndRedirect() {
     // If on auth pages but logged in, go to dashboard
     if (isAuthPage && isLoggedIn) {
         console.log('✅ User already logged in, redirecting to dashboard');
-        window.location.href = '/dashboard.html';
+        window.location.href = '/procastino-hackathon/dashboard.html';
         return;
     }
 
     // If on dashboard but not logged in, go to login
     if (currentPage.includes('dashboard.html') && !isLoggedIn) {
         console.log('⛔ Not logged in, redirecting to login');
-        window.location.href = '/login.html';
+        window.location.href = '/procastino-hackathon/login.html';
         return;
     }
 }
