@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ProcastiNo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>ProcastiNo</h1>
+                <p class="tagline">Your Anti-Procrastination Coach</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <h2>Welcome Back!</h2>
+
+                <div id="loginError" class="form-error" style="display: none;"></div>
+
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        class="form-input"
+                        placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        class="form-input"
+                        placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn-primary full-width">
+                    🔓 Login
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Don't have an account?
+                    <a href="/signup.html" class="auth-link">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check if already logged in
+        checkAuthAndRedirect();
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            console.log('📝 Login form submitted');
+
+            const result = loginUser(email, password);
+
+            if (result.success) {
+                console.log('✅ Login successful');
+                errorDiv.style.display = 'none';
+                // Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = '/dashboard.html';
+                }, 500);
+            } else {
+                console.log('❌ Login failed:', result.message);
+                errorDiv.textContent = result.message;
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

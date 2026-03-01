@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ProcastiNo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>ProcastiNo</h1>
+                <p class="tagline">Your Anti-Procrastination Coach</p>
+            </div>
+
+            <form id="signupForm" class="auth-form">
+                <h2>Create Your Account</h2>
+
+                <div id="signupError" class="form-error" style="display: none;"></div>
+                <div id="signupSuccess" class="form-success" style="display: none;"></div>
+
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input
+                        type="text"
+                        id="signupName"
+                        class="form-input"
+                        placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        class="form-input"
+                        placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        class="form-input"
+                        placeholder="At least 6 characters" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="signupConfirmPassword"
+                        class="form-input"
+                        placeholder="Confirm your password" required>
+                </div>
+
+                <button type="submit" class="btn-primary full-width">
+                    🎉 Create Account
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account?
+                    <a href="/login.html" class="auth-link">Login Here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check if already logged in
+        checkAuthAndRedirect();
+
+        // Handle form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const errorDiv = document.getElementById('signupError');
+            const successDiv = document.getElementById('signupSuccess');
+
+            console.log('📝 Signup form submitted');
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            const result = createAccount(name, email, password);
+
+            if (result.success) {
+                console.log('✅ Account created');
+                errorDiv.style.display = 'none';
+                successDiv.textContent = '✅ ' + result.message + ' Redirecting to login...';
+                successDiv.style.display = 'block';
+
+                // Clear form
+                document.getElementById('signupForm').reset();
+
+                // Redirect to login after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/login.html';
+                }, 2000);
+            } else {
+                console.log('❌ Signup failed:', result.message);
+                errorDiv.textContent = result.message;
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

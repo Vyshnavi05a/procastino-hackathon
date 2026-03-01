@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProcastiNo - Anti-Procrastination Coach</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth.js"></script>
+    <script>
+        // If user is already logged in, redirect to dashboard
+        if (isUserLoggedIn()) {
+            window.location.href = '/dashboard.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ProcastiNo</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="dashboard.html" class="nav-link cta-nav">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Stop Procrastinating.<br>Start Succeeding.</h1>
+            <p class="hero-tagline">Your personal AI-powered anti-procrastination coach designed for students who want to ace their goals.</p>
+            <a href="login.html" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <span class="card-emoji">📚</span>
+                <p>Study Smart</p>
+            </div>
+            <div class="floating-card card-2">
+                <span class="card-emoji">✅</span>
+                <p>Track Progress</p>
+            </div>
+            <div class="floating-card card-3">
+                <span class="card-emoji">🎯</span>
+                <p>Achieve Goals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose ProcastiNo?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Smart Goal Setting</h3>
+                <p>Break down your assignments into manageable tasks with AI-powered suggestions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Time Blocking</h3>
+                <p>Organize your schedule with effective time management techniques.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Visualize your productivity and stay motivated with detailed analytics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <h3>Daily Motivation</h3>
+                <p>Get personalized motivation and tips to keep you on track.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About ProcastiNo</h2>
+        <div class="about-content">
+            <p>ProcastiNo is an anti-procrastination platform built specifically for students. We understand the struggle of deadlines, distractions, and the constant battle against procrastination. Our tool combines behavioral psychology with modern technology to help you build better habits and achieve academic success.</p>
+            <div class="stats">
+                <div class="stat">
+                    <h3>10K+</h3>
+                    <p>Active Students</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>Success Rate</p>
+                </div>
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Universities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 ProcastiNo. All rights reserved. | Your journey to productivity starts here.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
