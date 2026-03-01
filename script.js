@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prevent unauthorized access to dashboard
     const user = getCurrentUser();
     if (!user) {
-        window.location.href = '/login.html';
+        window.location.href = '/procastino-hackathon/login.html';
         return;
     }
     console.log(`✅ User logged in as: ${user.name} (${user.email})`);
